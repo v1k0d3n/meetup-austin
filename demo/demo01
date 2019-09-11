@@ -1,7 +1,15 @@
 #!/usr/bin/env bash
+# Color Definitions:
+CLEAR='\033[0m'
+RED='\033[31m'
+GREEN='\033[32m'
+YELLOW='\033[33m'
+BOLD_RED='\033[1m\033[31m'
+BOLD_GREEN='\033[1m\033[32m'
+BOLD_YELLOW='\033[1m\033[33m'
 
-printf "Attempting to get version information from Tiller\n"
-printf "Command: \"helm version\" \n"
+printf "${BOLD_YELLOW}Attempting to get version information from Tiller${CLEAR} \n"
+printf "${BOLD_YELLOW}Command:${CLEAR} ${GREEN}\"helm version\"${CLEAR} \n"
 printf " \n"
 sleep 3
 helm version

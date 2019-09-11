@@ -1,7 +1,7 @@
 FROM bitnami/minideb
 MAINTAINER Brandon B. Jozsa <b@tigera.io>
 
-RUN install_packages curl bash openssl ca-certificates telnet make
+RUN install_packages curl bash openssl ca-certificates telnet make jq
 
 RUN curl https://raw.githubusercontent.com/kubernetes/helm/master/scripts/get | bash
 

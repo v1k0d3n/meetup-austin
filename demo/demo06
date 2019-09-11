@@ -1,7 +1,15 @@
 #!/usr/bin/env bash
+# Color Definitions:
+CLEAR='\033[0m'
+RED='\033[31m'
+GREEN='\033[32m'
+YELLOW='\033[33m'
+BOLD_RED='\033[1m\033[31m'
+BOLD_GREEN='\033[1m\033[32m'
+BOLD_YELLOW='\033[1m\033[33m'
 
-printf "Attempting to get secrets in the kube-system namespace\n"
-printf "Command: \"kubectl get secrets -n kube-system\" \n"
+printf "${BOLD_YELLOW}Attempting to get secrets in the kube-system namespace${CLEAR} \n"
+printf "${BOLD_YELLOW}Command:${CLEAR} ${GREEN}\"kubectl get secrets -n kube-system\"${CLEAR} \n"
 printf " \n"
 sleep 3
 kubectl get secrets -n kube-system
