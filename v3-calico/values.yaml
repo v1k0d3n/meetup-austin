@@ -4,3 +4,27 @@ kubernetes-common:
   global:
     region: cluster
     tld: local
+
+labels:
+  release_group: false
+  component: false
+  date: false
+  app: false
+  typha_datastore:
+    app: false
+    k8s-app: calico-typha
+  calico_node:
+    app: false
+    k8s-app: calico-node
+  typha_autoscale_horz:
+    app: false
+    k8s-app: calico-typha-autoscaler
+  typha_autoscale_vert:
+    app: false
+    k8s-app: calico-typha-autoscaler
+  calico-kube-controllers:
+    app: true
+    k8s-app: calico-kube-controllers
+
+manifests:
+  calico_controller_deploy: true

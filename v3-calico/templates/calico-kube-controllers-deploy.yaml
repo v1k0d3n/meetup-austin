@@ -1,0 +1,70 @@
+
+{{/*
+Copyright 2018 The Flagship Developers.
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+   http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+*/}}
+
+{{- if .Values.manifests.calico_controller_deploy }}
+{{- $envAll := . }}
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: calico-kube-controllers
+  namespace: {{ .Release.Namespace }}
+  labels:
+{{ tuple $envAll "calico" "calico-kube-controllers" | include "kubernetes-common.snippets.kubernetes_metadata_labels" | indent 4 }}
+spec:
+  # The controllers can only have a single active instance.
+  replicas: 1
+  selector:
+    matchLabels:
+{{ tuple $envAll "calico" "calico-kube-controllers" | include "kubernetes-common.snippets.kubernetes_metadata_labels" | indent 6 }}
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      name: calico-kube-controllers
+      namespace: {{ .Release.Namespace }}
+      labels:
+{{ tuple $envAll "calico" "calico-kube-controllers" | include "kubernetes-common.snippets.kubernetes_metadata_labels" | indent 8 }}
+      annotations:
+        scheduler.alpha.kubernetes.io/critical-pod: ''
+    spec:
+      nodeSelector:
+        beta.kubernetes.io/os: linux
+      tolerations:
+        # Mark the pod as a critical add-on for rescheduling.
+        - key: CriticalAddonsOnly
+          operator: Exists
+        - key: node-role.kubernetes.io/master
+          effect: NoSchedule
+      serviceAccountName: calico-kube-controllers
+      priorityClassName: system-cluster-critical
+      containers:
+        - name: calico-kube-controllers
+          image: calico/kube-controllers:v3.8.2
+          env:
+            # Choose which controllers to run.
+            - name: ENABLED_CONTROLLERS
+              value: node
+            - name: DATASTORE_TYPE
+              value: kubernetes
+          readinessProbe:
+            exec:
+              command:
+              - /usr/bin/check-status
+              - -r
+{{- end }}
