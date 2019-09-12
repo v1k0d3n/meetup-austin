@@ -21,7 +21,7 @@ To set up an environment for this demonstration, perform the following steps:
 2. Install the [Calico CNI](https://docs.projectcalico.org/v3.8/getting-started/kubernetes/installation/calico#installing-with-the-kubernetes-api-datastore50-nodes-or-less) so you can implement Calico Network Policy as I showed during our Meetup.
 3. Use the [Helm](https://helm.sh/) client to [initialize Tiller](https://helm.sh/docs/install/).
 4. Run the included [Dockerfile](https://cloud.docker.com/u/v1k0d3n/repository/docker/v1k0d3n/helm-security) in the example cluster with the following command: `kubectl run -n default --quiet --rm --restart=Never -ti --image=v1k0d3n/helm-security exposed`
-5. Once you are inside of the container, you can run the following commands in sequence: `demo01`, `demo03`, `demo03`, and so on...
+5. Once you are inside of the container, you can run the following commands in sequence: `demo01`, `demo02`, `demo03`... `demo07` (the final script).
 
 The scripts will `printf` the commands that are being executed inside the container.
 
