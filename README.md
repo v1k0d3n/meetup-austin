@@ -41,9 +41,15 @@ Did you notice any changes? You'll notice that your Helm client will continue to
 
 If you have any questions, I can be reached via the following:
 
+**Kubernetes Slack:** [`@v1k0d3n`](https://app.slack.com/team/U0A333J23)<br>
 **Twitter:** [`@v1k0d3n`](https://twitter.com/v1k0d3n)<br>
 **LinkedIn:** [`@bjozsa`](https://www.linkedin.com/in/bjozsa/)<br>
 
 **Follow us:** [`@projectcalico`](https://twitter.com/projectcalico)
 
 If you would like to have a workshop on [Helm](https://helm.sh/), [Calico](https://www.projectcalico.org/), [Istio](https://istio.io/), [Kubernetes Admission Controllers](https://kubernetes.io/docs/reference/access-authn-authz/admission-controllers/), or perhaps how each of these things can work together, please reach out and we can work on scheduling something for your area!
+
+# Credits
+
+The amazing [Helm team](https://kubernetes.slack.com/messages/C51E88VDG) on [Slack](kubernetes.slack.com) (especially [@bacongobbler](https://app.slack.com/team/U0D3ENG3G) and [@jdolitsky](https://app.slack.com/team/U4GDWJ5FB) for his contrinbutions to Helm's new push/pull mechenisms in v3).<br>
+[@guslee](https://kubernetes.slack.com/messages/DNCFYTYK0) for his great article on Helm Security, for which this demonstration was inspired from.
