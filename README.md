@@ -53,3 +53,9 @@ If you would like to have a workshop on [Helm](https://helm.sh/), [Calico](https
 
 The amazing [Helm team](https://kubernetes.slack.com/messages/C51E88VDG) on [Slack](kubernetes.slack.com) (especially [@bacongobbler](https://app.slack.com/team/U0D3ENG3G) and [@jdolitsky](https://app.slack.com/team/U4GDWJ5FB) for his contrinbutions to Helm's new push/pull mechenisms in v3).<br>
 [@guslee](https://kubernetes.slack.com/messages/DNCFYTYK0) for his great article on Helm Security, for which this demonstration was inspired from.
+
+# Final Thoughts
+
+This repo will be maintained and updated as required. At the time that I make this repo public, I will continue to improving the v2 and v3 Chart examples (leveraging the `kubernetes-common` library), but everything else will work as it did during our demo.
+
+I encourage you to explore [Helm v3](https://v3.helm.sh/docs/) and give feedback to the development team! Again, thanks for coming to the meetup, and hopefully we'll see you again soon!
