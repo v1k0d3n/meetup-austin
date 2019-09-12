@@ -6,12 +6,12 @@ It was a pleasure to meet all of you. I'd really like to thank Victor and Jason 
 
 Please feel free to look through the repository we covered during the talk. Here's a rundown of some of the things you will find in here:
 
-- **Dockerfile:** which was used to communicate with Tiller, where we expect the XSS exploit to occur from
-- **Demo Folder:** used to run through the demo and to collect the bootstrap secret from the `kube-system` namespace)
+- **Dockerfile:** which was used to communicate with Tiller, where we expect the XSS exploit/attack to come from
+- **Demo Folder:** used to run through the demo and to collect the bootstrap secret from the `kube-system` namespace
 - **Escalation Chart:** used to elevate `ClusterRole` and `ClusterRoleBinding` (used to collect secrets from the Kubernetes API)
 - **Sample Charts:** v2 and v3 minimalist versions of our Calico CNI, along with a `kubernetes-common` Library chart
 - **`calicoctl.cfg`:** used to configure the `calicoctl` client via Kubernetes `kubeconfig`
-- **Calico Policy:** (that was used to demonstrate blocking `44134` internally via labels `app=helm || name=tiller`)
+- **Calico Policy:** used to demonstrate blocking `44134` from any source via labels `app=helm || name=tiller`
 
 
 # Execution of the Meetup Demonstration
