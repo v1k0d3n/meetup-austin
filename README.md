@@ -11,7 +11,7 @@ Please feel free to look through the repository we covered during the talk. Here
 - **Escalation Chart:** used to elevate `ClusterRole` and `ClusterRoleBinding` (used to collect secrets from the Kubernetes API)
 - **Sample Charts:** v2 and v3 minimalist versions of our Calico CNI, along with a `kubernetes-common` Library chart
 - **`calicoctl.cfg`:** used to configure the `calicoctl` client via Kubernetes `kubeconfig`
-- **Calico Policy:** used to demonstrate blocking `44134` from any source via labels `app=helm || name=tiller`
+- **`calico-policy.yaml`:** used to demonstrate blocking `44134` from any source via labels `app=helm || name=tiller`
 
 
 # Execution of the Meetup Demonstration

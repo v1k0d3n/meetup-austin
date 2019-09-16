@@ -1,0 +1,20 @@
+---
+apiVersion: projectcalico.org/v3
+kind: NetworkPolicy
+metadata:
+  name: deny-tcp-tiller
+  namespace: kube-system
+spec:
+  order: 100
+  selector: app == 'helm' || name == 'tiller'
+  ingress:
+    - action: Deny
+      protocol: TCP
+      source:
+        nets:
+          - 0.0.0.0/0
+      destination:
+        ports:
+          - '44134'
+  types:
+    - Ingress
